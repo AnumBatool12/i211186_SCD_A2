@@ -35,6 +35,6 @@ jobs:
         #Running Tests
         - name: Running Tests
           run: npm test
-        
+        - run: echo "Tests are run"
           
 
