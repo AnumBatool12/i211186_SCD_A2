@@ -33,11 +33,11 @@ jobs:
         - run: echo "Tests are run"
 
         #Running linter
-        #- name: Running Linter
-         # run: |
-          #  npm install eslint@7
-           # npm run lint
-          #env:
-           # CI: true
+        - name: Running Linter
+          run: |
+            npm install eslint@7
+            npm run lint
+          env:
+            CI: true
           
 
