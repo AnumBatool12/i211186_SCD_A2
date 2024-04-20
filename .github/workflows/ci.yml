@@ -1,0 +1,40 @@
+name: Continuous Intgration
+
+#Triggers workflow on every push to the main branch
+on:
+    push:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+        #checking out code
+        - name: Checkout Repository
+          uses: actions/checkout@v2
+        - run: echo "Check out complete"
+
+        #Setting up Node js
+        - name: Setting up Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: '12.x' #README said 12.10.0 or higher
+        - run: echo "Node.js is set up in container"
+
+        #Installing dependencies
+        - name: Install Dependencies
+          run: npm install
+        - run: echo "Dependencies Installed"
+
+        #Running linter
+        - name: Running Linter
+          run: npm run lint
+        - run: echo "Linter is run"
+        
+        #Running Tests
+        - name: Running Tests
+          run: npm test
+        
+          
+
