@@ -29,8 +29,11 @@ jobs:
 
         #Running linter
         - name: Running Linter
-          run: npm run lint
-        - run: echo "Linter is run"
+          run: |
+            npm install eslint@7
+            npm run lint
+          env:
+            CI: true
         
         #Running Tests
         - name: Running Tests
