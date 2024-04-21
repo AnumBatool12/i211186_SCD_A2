@@ -3,7 +3,7 @@ module.exports = {
     {
       "files": ["**/*.js"],
       "parserOptions": {
-        "sourceType": "commonjs"
+        "sourceType": "module" // Update sourceType to "module"
       }
     }
   ],
