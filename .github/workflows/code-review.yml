@@ -1,4 +1,5 @@
-name: Continuous Intgration
+name: Code Review
+
 
 #Triggers workflow on every push to the main branch
 on:
@@ -40,5 +41,9 @@ jobs:
          # env:
            # CI: true
           run: echo "Running the linter"
+
+        # Security checks are run
+        - name: Run Snyk Security Scan
+          run: npx snyk test
           
 

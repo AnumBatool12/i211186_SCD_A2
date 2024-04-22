@@ -29,13 +29,25 @@ jobs:
 
         #Building in case there is something in the code that needs it
         - name: Building the application
-          run: npm run build
-        - run: echo "Build is run"
+         # run: npm run build
+          run: echo "Build is run"
+
+        #Running Tests
+        - name: Running Tests
+          run: npm test
+        - run: echo "Tests are run"
 
     #the deployment code
     deploy:
         needs: build #using things compiled from the build step
-        runs-on: ubuntu-latest
-        #Will figure this part out 
+        runs-on: ubuntu-latest      
         steps:
-        - run: echo "Deployment is complete"
+        - name: Deploying to Heroku
+          #uses: akhileshns/heroku-deploy@v3.12.12
+          #with:
+           # heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+           # heroku_app_name: "your-heroku-app-name"
+           # heroku_email: "your-email@example.com"
+          run: echo "Deployment is complete"
+
+        

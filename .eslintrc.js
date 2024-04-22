@@ -3,7 +3,8 @@ module.exports = {
     {
       "files": ["**/*.js"],
       "parserOptions": {
-        "sourceType": "module" // Update sourceType to "module"
+        "sourceType": "module", 
+        "ecmaVersion": 2015
       }
     }
   ],

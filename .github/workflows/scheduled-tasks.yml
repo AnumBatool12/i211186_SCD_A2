@@ -1,0 +1,19 @@
+name: Scheduled Tasks
+
+on:
+  schedule:
+    - cron: '30 8 * * *' # Run daily at midnight
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Maintenance of Code
+      run: ./scripts/maintenance.sh
+
+    - name: backing up data
+      run: ./scripts/backup.sh
+
+    - name: Notifying 
+      run: ./scripts/notify.sh #do the email sending 
