@@ -7,7 +7,6 @@
   "scripts": {
     "start": "node run.js",
     "lint": "eslint src",
-    "test": "jest",
     "docs:generate": "jsdoc -r -c jsdoc.config.json"
   },
   "dependencies": {
