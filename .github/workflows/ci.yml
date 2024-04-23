@@ -35,7 +35,7 @@ jobs:
         #Running linter
         - name: Running Linter
           #run: |
-           # npm install eslint@7
+           # npm install eslint@7 #was getting error in linter cofig file
            # npm run lint
          # env:
            # CI: true
