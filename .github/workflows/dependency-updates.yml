@@ -18,3 +18,4 @@ jobs:
           #uses: dependabot/dependabot-core@master
           #with:
             #github_token: ${{ secrets.GITHUB_TOKEN }}
+            #I am not implementing this ecause the actual code only runs on Node version 12

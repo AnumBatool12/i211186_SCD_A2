@@ -1,4 +1,4 @@
-name: Custom Workflow 
+name: Code Review
 
 #Triggers workflow on every push to the main branch
 on:
@@ -6,11 +6,37 @@ on:
         branches: [main]
 
 jobs:
-    custom-task:
+    build:
         runs-on: ubuntu-latest
-    
-        steps:
-        - name: Running Custom Work flow
-          run: echo "Custom work flow"
 
-          #C\GEnertate release notes
+        steps:
+        #checking out code
+        - name: Checkout Repository
+          uses: actions/checkout@v2
+        - run: echo "Check out complete"
+
+        #Setting up Node js
+        - name: Setting up Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: '12.x' #README said 12.10.0 or higher
+        - run: echo "Node.js is set up"
+
+        #Installing dependencies
+        - name: Install Dependencies
+          run: npm install
+        - run: echo "Dependencies Installed"
+        
+        # Authenticate Snyk
+        - name: Snyk Authentication
+          run: npx snyk auth
+          env:
+            SNYK_TOKEN: ${{ secrets.ASSIGNMENT_TOKEN }} # Assuming you have a secret for your Snyk token
+
+        # Security checks are run
+        - name: Run Snyk Security Scan
+          run: npx snyk test
+
+        #Customer workflow is completed
+        - name: Custom Workflow is completed
+          run: echo "Custom Workflow is Completed"

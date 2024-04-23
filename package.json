@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node run.js",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "docs:generate": "jsdoc -r -c jsdoc.config.json"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "eslint": "^9.1.0",
-    "globals": "^15.0.0"
+    "globals": "^15.0.0",
+    "jsdoc": "^4.0.2"
   }
 }
