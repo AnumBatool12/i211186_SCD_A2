@@ -1,3 +1,3 @@
 //Sample test file
 
-test('returns true', () => expect(true).toBe(true));
+test('Sample Test', () => expect(true).toBe(true));
