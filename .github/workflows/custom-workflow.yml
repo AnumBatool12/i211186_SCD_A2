@@ -1,4 +1,4 @@
-name: Code Review
+name: Custom Workflow
 
 #Triggers workflow on every push to the main branch
 on:
@@ -27,14 +27,10 @@ jobs:
           run: npm install
         - run: echo "Dependencies Installed"
         
-        # Authenticate Snyk
-        - name: Snyk Authentication
-          run: npx snyk auth
-          env:
-            SNYK_TOKEN: ${{ secrets.ASSIGNMENT_TOKEN }} # Assuming you have a secret for your Snyk token
-
-        # Security checks are run
+        # Authenticate Snyk and run security scan
         - name: Run Snyk Security Scan
+          env:
+            SNYK_TOKEN: ${{ secrets.ASSIGNMENT_TOKEN }} # Provide your Snyk token here
           run: npx snyk test
 
         #Customer workflow is completed
