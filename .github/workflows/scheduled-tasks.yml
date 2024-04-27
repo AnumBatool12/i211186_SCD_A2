@@ -1,8 +1,10 @@
 name: Scheduled Tasks
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Run daily at
+  push:
+    branches: [main] #This is temporary the actual code is the schedule one
+#  schedule: # I am doing this to stop it from running at night
+   # - cron: '0 0 * * *' # Run daily at
 
 jobs:
   backup:
